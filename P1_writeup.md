@@ -8,13 +8,10 @@ The goals / steps of this project are the following:
 * Reflect on your work in a written report
 
 
-[//]: # (Image References)
-
-
 
 ---
 
-### Reflection
+## Reflection
 
 ### 1. Description
 
@@ -23,7 +20,7 @@ My pipeline has five stages. Each stage, except the last one has parameters to t
 #### Stage1 - color filter 
 Applies a color filter that omits unrelevant darker things.
 
-[image1]: .//test_images_output/stage1.png "Stage1"
+<img src="test_images_output/stage1.png" width="480" alt="Stage1" />
 
 ##### Parameters:
 
@@ -34,7 +31,7 @@ Upper bound of color filter
 #### Stage2 - cut image
 A quadrilateral was defined to cut our lane from the image. 
 
-[image2]: .//test_images_output/stage2.png "Stage2"
+<img src="test_images_output/stage2.png" width="480" alt="Stage2" />
 
 ##### Parameters:
 
@@ -47,7 +44,7 @@ Stage3 transforms the image to grayscale, then applies Gaussian Blur to it, then
 one seems a but useless on all of the test pictures but in WhiteCarLaneSwitch, there is a small yellow bump on the
 lower-left part partially erased by this transform.
 
-[image3]: .//test_images_output/stage3.png "Stage3"
+<img src="test_images_output/stage3.png" width="480" alt="Stage3" />
 
 ##### Parameters:
 Kernel size
@@ -60,7 +57,7 @@ High threshold of Canny transformation
 Stage4 applies Hough Transform on the image. Then the goal is to get two lines on each side averaged from the output of Hough transform.
 Original draw_lines was renamed to draw_raw_lines, i could use it later too. 
 
-[image4]: .//test_images_output/stage4noext.png "Stage4noext"
+<img src="test_images_output/stage4noext.png" width="480" alt="Stage4noext" />
 
 ##### Extrapolating and averaging
 In _draw_lines_, numpy polyfit was used to get an average
@@ -68,7 +65,7 @@ line of left and right lanes: all points of the lines are collected and then pol
 parameters represent minimum and maximum slopes of accepted lines to be averaged. 
 The slope and the shift of the line is used to the extrapolation. A ratio paramter used to cut the top of the lines off on a constant height.
 
-[image5]: .//test_images_output/stage4.png "Stage4"
+<img src="test_images_output/stage4.png" width="480" alt="Stage4" />
 
 ##### Parameters:
 
@@ -81,7 +78,7 @@ The maximum slope of line (inverted on the right line)
 #### Stage5 - Add lines to original image
 Finally the original image and the extrapolated lines are composed together.
 
-[image6]: .//test_images_output/whiteCarLaneSwitch.png "Final image"
+<img src="test_images_output/whiteCarLaneSwitch.png" width="480" alt="Stage4" />
 
 ### 2. Shortcomings
 Pipeline wouldn't work when light conditions changes (wet road, night road, etc..)
