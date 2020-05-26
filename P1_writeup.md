@@ -17,6 +17,7 @@ The goals / steps of this project are the following:
 
 My pipeline has five stages. Each stage, except the last one has parameters to tune the result, these parameters are shown below too. The input of the pipeline is an image of the front camera, the output is the same image with a layer on the top of it, this layer consists the borders of our lane.
 
+
 #### Stage1 - color filter 
 Applies a color filter that omits unrelevant darker things.
 
@@ -28,6 +29,7 @@ Lower bound of color filter
 
 Upper bound of color filter
 
+
 #### Stage2 - cut image
 A quadrilateral was defined to cut our lane from the image. 
 
@@ -38,6 +40,7 @@ A quadrilateral was defined to cut our lane from the image.
 Distortion of the upper side along x toward the apex (distort_x)
 
 Offset of the upper side of the polygon from the top along y (distort_y)
+
 
 #### Stage3 - Canny Transform
 Stage3 transforms the image to grayscale, then applies Gaussian Blur to it, then applies Canny Transform to it. Last
@@ -53,11 +56,15 @@ Low threshold of Canny transformation
 
 High threshold of Canny transformation
 
+
 #### Stage4 - Hough Transform and extrapolate
-Stage4 applies Hough Transform on the image. Then the goal is to get two lines on each side averaged from the output of Hough transform.
-Original draw_lines was renamed to draw_raw_lines, i could use it later too. 
+Stage4 applies Hough Transform on the image. 
 
 <img src="test_images_output/stage4noext.png" width="480" alt="Stage4noext" />
+
+Then the goal is to get two lines on each side averaged from the output of Hough transform.
+Original draw_lines was renamed to draw_raw_lines, i could use it later too. 
+
 
 ##### Extrapolating and averaging
 In _draw_lines_, numpy polyfit was used to get an average
@@ -75,10 +82,12 @@ The minimum slope of line (inverted on the right line)
 
 The maximum slope of line (inverted on the right line)
 
+
 #### Stage5 - Add lines to original image
 Finally the original image and the extrapolated lines are composed together.
 
 <img src="test_images_output/whiteCarLaneSwitch.jpg" width="480" alt="Stage4" />
+
 
 ### 2. Shortcomings
 Pipeline wouldn't work when light conditions changes (wet road, night road, etc..)
