@@ -78,7 +78,7 @@ The maximum slope of line (inverted on the right line)
 #### Stage5 - Add lines to original image
 Finally the original image and the extrapolated lines are composed together.
 
-<img src="test_images_output/whiteCarLaneSwitch.png" width="480" alt="Stage4" />
+<img src="test_images_output/whiteCarLaneSwitch.jpg" width="480" alt="Stage4" />
 
 ### 2. Shortcomings
 Pipeline wouldn't work when light conditions changes (wet road, night road, etc..)
